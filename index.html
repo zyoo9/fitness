@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12周增肌塑形计划</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">💪</div>
+            <div class="loader-text">健身追踪</div>
+            <div class="loader-progress">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <h1 class="logo">健身追踪</h1>
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-tab="training">训练计划</button>
+                <button class="nav-tab" data-tab="checkin">打卡记录</button>
+                <button class="nav-tab" data-tab="body">身体数据</button>
+            </nav>
+        </header>
+
+        <!-- 训练计划页面 -->
+        <div class="tab-content active" id="training">
+            <div class="card">
+                <div class="card-header">
+                    <h2>12周增肌塑形蓝图</h2>
+                    <div class="week-selector">
+                        <label>当前周次:</label>
+                        <select id="weekSelect">
+                            <option value="1-4">第1-4周 (基础奠定)</option>
+                            <option value="5-8">第5-8周 (力量增长)</option>
+                            <option value="9-12">第9-12周 (增肌塑形)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 阶段一: 1-4周 -->
+                <div class="phase-content" id="phase-1-4">
+                    <div class="phase-info">
+                        <h3>阶段一：基础奠定与动作学习 (Weeks 1-4)</h3>
+                        <div class="phase-details">
+                            <p><strong>频率：</strong>每周3次，全身训练 (FBW)</p>
+                            <p><strong>目标：</strong>学习正确动作，找到所有动作的"基线重量"，激活核心</p>
+                        </div>
+                    </div>
+
+                    <div class="workout-grid">
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 A</h4>
+                                <span class="day-tag">周三晚</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (5-10分钟)</h5>
+                                <p class="exercise-item">动态拉伸：开合跳、弓步转体、猫驼式、肩袖激活</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>主要动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 高脚杯深蹲</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 器械推胸</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 高位下拉</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 哑铃推肩</span>
+                                    <span class="exercise-sets">2组 × 10-12次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>核心专项 (10分钟)</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">平板支撑</span>
+                                    <span class="exercise-sets">3组 × 45-60秒</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">死虫子</span>
+                                    <span class="exercise-sets">3组 × 12-16次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>冷身 (5分钟)</h5>
+                                <p class="exercise-item">静态拉伸：胸、背、臀、大腿</p>
+                            </div>
+                        </div>
+
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 B</h4>
+                                <span class="day-tag">周六</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (5-10分钟)</h5>
+                                <p class="exercise-item">动态拉伸：开合跳、弓步转体、猫驼式、肩袖激活</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>主要动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 器械腿举</span>
+                                    <span class="exercise-sets">3组 × 10-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 哑铃卧推</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 坐姿划船</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 哑铃侧平举</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>核心专项 (10分钟)</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">卷腹</span>
+                                    <span class="exercise-sets">3组 × 15-20次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">鸟狗式</span>
+                                    <span class="exercise-sets">3组 × 10-12次/侧</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>冷身 (5分钟)</h5>
+                                <p class="exercise-item">静态拉伸：胸、背、臀、大腿</p>
+                            </div>
+                        </div>
+
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 C</h4>
+                                <span class="day-tag">周日</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (5-10分钟)</h5>
+                                <p class="exercise-item">动态拉伸：开合跳、弓步转体、猫驼式、肩袖激活</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>主要动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 罗马尼亚硬拉</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 俯卧撑</span>
+                                    <span class="exercise-sets">3组 × 力竭</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 单臂哑铃划船</span>
+                                    <span class="exercise-sets">3组 × 8-10次/侧</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 绳索面拉</span>
+                                    <span class="exercise-sets">3组 × 15-20次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>核心专项 (10分钟)</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">平板支撑</span>
+                                    <span class="exercise-sets">3组 × 45-60秒</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">俄罗斯转体</span>
+                                    <span class="exercise-sets">3组 × 15-20次/侧</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>冷身 (5分钟)</h5>
+                                <p class="exercise-item">静态拉伸：胸、背、臀、大腿</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <h5>📌 双重递进原则</h5>
+                        <p><strong>第1周：</strong>找到基线重量（能做3组×8-10次的重量）</p>
+                        <p><strong>第2-4周：</strong>保持重量不变，努力增加次数，直到3组都能做到12次，下次训练再加重</p>
+                    </div>
+                </div>
+
+                <!-- 阶段二: 5-8周 -->
+                <div class="phase-content" id="phase-5-8" style="display:none;">
+                    <div class="phase-info">
+                        <h3>阶段二：力量增长与分化训练 (Weeks 5-8)</h3>
+                        <div class="phase-details">
+                            <p><strong>频率：</strong>每周3-4次，上/下半身分化 (Upper/Lower Split)</p>
+                            <p><strong>目标：</strong>增加训练量，开始真正刺激力量和肌肉维度的增长</p>
+                            <p><strong>训练日安排：</strong>A-B-A, B-A-B 循环（周二上、周四下、周六上、周日下）</p>
+                        </div>
+                    </div>
+
+                    <div class="workout-grid">
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 A - 上半身</h4>
+                                <span class="day-tag">周二/周六</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (10分钟)</h5>
+                                <p class="exercise-item">动态拉伸（重点：肩、胸、背）</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>力量动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 哑铃/杠铃卧推</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 杠铃划船</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>辅助动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 坐姿哑铃推肩</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 高位下拉</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>塑形动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">5. 哑铃侧平举</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">6. 哑铃弯举</span>
+                                    <span class="exercise-sets">2组 × 12-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">7. 绳索下压</span>
+                                    <span class="exercise-sets">2组 × 12-15次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>冷身 (5-10分钟)</h5>
+                                <p class="exercise-item">静态拉伸：胸、背、肩、手臂</p>
+                            </div>
+                        </div>
+
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 B - 下半身 & 核心</h4>
+                                <span class="day-tag">周四/周日</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (10分钟)</h5>
+                                <p class="exercise-item">动态拉伸（重点：髋、膝、踝）</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>力量动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 杠铃深蹲</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 罗马尼亚硬拉</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>辅助动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 保加利亚分腿蹲</span>
+                                    <span class="exercise-sets">3组 × 8-10次/侧</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 器械腿弯举</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>塑形 & 核心</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">5. 器械腿屈伸</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">6. 绳索卷腹</span>
+                                    <span class="exercise-sets">3组 × 15-20次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">7. 悬垂举腿</span>
+                                    <span class="exercise-sets">3组 × 力竭</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>冷身 (5-10分钟)</h5>
+                                <p class="exercise-item">静态拉伸：臀、股四、大腿后侧</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <h5>📌 渐进超负荷</h5>
+                        <p><strong>复合动作(8-12次)：</strong>继续执行"双重递进"</p>
+                        <p><strong>孤立动作(12-15次)：</strong>当3组都能做15次时再加重</p>
+                    </div>
+                </div>
+
+                <!-- 阶段三: 9-12周 -->
+                <div class="phase-content" id="phase-9-12" style="display:none;">
+                    <div class="phase-info">
+                        <h3>阶段三：增肌塑形与强化 (Weeks 9-12)</h3>
+                        <div class="phase-details">
+                            <p><strong>频率：</strong>每周3-4次，强化上/下分化</p>
+                            <p><strong>目标：</strong>增加塑形动作容量，最大化增肌效果</p>
+                            <p><strong>训练日安排：</strong>A-B-C 循环或 A-B-C-B（B日练两次效果最好）</p>
+                        </div>
+                    </div>
+
+                    <div class="workout-grid">
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 A - 上半身·推重点</h4>
+                                <span class="day-tag">周二</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (10分钟)</h5>
+                                <p class="exercise-item">动态拉伸</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>力量动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 杠铃卧推</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 坐姿哑铃推肩</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>塑形动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 上斜哑铃卧推</span>
+                                    <span class="exercise-sets">3组 × 10-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 哑铃侧平举</span>
+                                    <span class="exercise-sets">4组 × 12-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">5. 绳索夹胸</span>
+                                    <span class="exercise-sets">2组 × 12-15次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>手臂</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">6. 绳索下压（三头）</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">7. 哑铃弯举（二头）</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>核心</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">悬垂举腿</span>
+                                    <span class="exercise-sets">3组 × 力竭</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 C - 上半身·拉重点</h4>
+                                <span class="day-tag">周六</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (10分钟)</h5>
+                                <p class="exercise-item">动态拉伸</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>力量动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 引体向上/高位下拉</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 杠铃划船</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>塑形动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 单臂哑铃划船</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 绳索面拉</span>
+                                    <span class="exercise-sets">3组 × 15-20次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">5. 反向飞鸟</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>核心</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">绳索卷腹</span>
+                                    <span class="exercise-sets">3组 × 15-20次</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="workout-card">
+                            <div class="workout-header">
+                                <h4>训练日 B - 下半身 & 核心</h4>
+                                <span class="day-tag">周四/周日</span>
+                            </div>
+                            <div class="workout-section">
+                                <h5>热身 (10分钟)</h5>
+                                <p class="exercise-item">动态拉伸</p>
+                            </div>
+                            <div class="workout-section">
+                                <h5>力量动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">1. 杠铃深蹲</span>
+                                    <span class="exercise-sets">3组 × 8-12次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">2. 罗马尼亚硬拉</span>
+                                    <span class="exercise-sets">3组 × 10-12次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>塑形动作</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">3. 器械腿举</span>
+                                    <span class="exercise-sets">3组 × 10-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">4. 器械腿弯举</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">5. 器械腿屈伸</span>
+                                    <span class="exercise-sets">3组 × 12-15次</span>
+                                </div>
+                            </div>
+                            <div class="workout-section">
+                                <h5>核心</h5>
+                                <div class="exercise-item">
+                                    <span class="exercise-name">侧平板支撑</span>
+                                    <span class="exercise-sets">3组 × 45-60秒/侧</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <h5>⏰ 周中训练时间管理</h5>
+                        <p>周中训练（9:00-10:00）优先完成力量动作和塑形动作1-2</p>
+                        <p>时间不够时，手臂和核心可留到周末补充</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 打卡记录页面 -->
+        <div class="tab-content" id="checkin">
+            <div class="card">
+                <div class="card-header">
+                    <h2>训练打卡</h2>
+                    <button class="btn-primary" id="addCheckinBtn">+ 新增打卡</button>
+                </div>
+
+                <div class="checkin-calendar">
+                    <div class="calendar-header">
+                        <button class="btn-icon" id="prevMonth">‹</button>
+                        <h3 id="currentMonth"></h3>
+                        <button class="btn-icon" id="nextMonth">›</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid"></div>
+                </div>
+
+                <div class="checkin-list" id="checkinList"></div>
+            </div>
+        </div>
+
+        <!-- 身体数据页面 -->
+        <div class="tab-content" id="body">
+            <div class="card">
+                <div class="card-header">
+                    <h2>身体数据追踪</h2>
+                    <button class="btn-primary" id="addBodyDataBtn">+ 记录数据</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📏</div>
+                        <div class="stat-info">
+                            <span class="stat-label">身高</span>
+                            <span class="stat-value" id="heightValue">--</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚖️</div>
+                        <div class="stat-info">
+                            <span class="stat-label">当前体重</span>
+                            <span class="stat-value" id="weightValue">--</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💪</div>
+                        <div class="stat-info">
+                            <span class="stat-label">体重变化</span>
+                            <span class="stat-value" id="weightChange">--</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <span class="stat-label">BMI</span>
+                            <span class="stat-value" id="bmiValue">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>体重趋势</h3>
+                    <canvas id="weightChart"></canvas>
+                </div>
+
+                <div class="body-data-list" id="bodyDataList"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 打卡弹窗 -->
+    <div class="modal" id="checkinModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>记录训练</h3>
+                <button class="btn-close" onclick="closeModal('checkinModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>训练日期</label>
+                    <input type="date" id="checkinDate" />
+                </div>
+                <div class="form-group">
+                    <label>训练类型</label>
+                    <select id="checkinType">
+                        <option value="">选择训练类型</option>
+                        <option value="训练日 A">训练日 A</option>
+                        <option value="训练日 B">训练日 B</option>
+                        <option value="训练日 C">训练日 C</option>
+                        <option value="上半身·推">上半身·推</option>
+                        <option value="上半身·拉">上半身·拉</option>
+                        <option value="下半身">下半身</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>训练时长（分钟）</label>
+                    <input type="number" id="checkinDuration" placeholder="60" />
+                </div>
+                <div class="form-group">
+                    <label>训练笔记</label>
+                    <textarea id="checkinNotes" rows="4" placeholder="记录重量、次数、感受..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('checkinModal')">取消</button>
+                <button class="btn-primary" onclick="saveCheckin()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 身体数据弹窗 -->
+    <div class="modal" id="bodyDataModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>记录身体数据</h3>
+                <button class="btn-close" onclick="closeModal('bodyDataModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>记录日期</label>
+                    <input type="date" id="bodyDate" />
+                </div>
+                <div class="form-group">
+                    <label>身高（cm）</label>
+                    <input type="number" id="bodyHeight" step="0.1" placeholder="175" />
+                </div>
+                <div class="form-group">
+                    <label>体重（kg）</label>
+                    <input type="number" id="bodyWeight" step="0.1" placeholder="70.5" />
+                </div>
+                <div class="form-group">
+                    <label>备注</label>
+                    <textarea id="bodyNotes" rows="3" placeholder="其他身体数据或感受..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('bodyDataModal')">取消</button>
+                <button class="btn-primary" onclick="saveBodyData()">保存</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
