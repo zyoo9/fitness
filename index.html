@@ -3,635 +3,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12周增肌塑形计划</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Weekly Plan - Fitness</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F5F5F7;
+            min-height: 100vh;
+            padding-bottom: 3rem;
+        }
+        
+        .selection-bg-black::selection {
+            background-color: black;
+            color: white;
+        }
+        
+        .card {
+            transition: all 0.3s ease-out;
+        }
+        
+        .card:hover:not(.rest-card):not(.tips-card) {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+        
+        .progress-bar {
+            transition: width 0.7s ease-in-out;
+        }
+        
+        .task-item {
+            transition: all 0.2s;
+        }
+        
+        .task-note {
+            transition: opacity 0.2s;
+        }
+        
+        .task-item:hover .task-note:not(.tips-note) {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .task-note:not(.tips-note) {
+                display: none;
+            }
+        }
+        
+        .nav-button {
+            transition: all 0.2s;
+        }
+        
+        .nav-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
-<body>
-    <!-- 页面加载动画 -->
-    <div class="page-loader">
-        <div class="loader-content">
-            <div class="loader-logo">💪</div>
-            <div class="loader-text">健身追踪</div>
-            <div class="loader-progress">
-                <div class="loader-bar"></div>
+<body class="selection-bg-black">
+    <div class="min-h-screen bg-[#F5F5F7] font-sans pb-12">
+        <!-- Header Section -->
+        <div class="px-6 pt-8 pb-6 max-w-[1400px] mx-auto flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tighter text-black leading-none">
+                    WEEKLY<span class="text-gray-300">PLAN.</span>
+                </h1>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <!-- 顶部导航 -->
-        <header class="header">
-            <h1 class="logo">健身追踪</h1>
-            <nav class="nav-tabs">
-                <button class="nav-tab active" data-tab="training">训练计划</button>
-                <button class="nav-tab" data-tab="checkin">打卡记录</button>
-                <button class="nav-tab" data-tab="body">身体数据</button>
-            </nav>
-        </header>
-
-        <!-- 训练计划页面 -->
-        <div class="tab-content active" id="training">
-            <div class="card">
-                <div class="card-header">
-                    <h2>12周增肌塑形蓝图</h2>
-                    <div class="week-selector">
-                        <label>当前周次:</label>
-                        <select id="weekSelect">
-                            <option value="1-4">第1-4周 (基础奠定)</option>
-                            <option value="5-8">第5-8周 (力量增长)</option>
-                            <option value="9-12">第9-12周 (增肌塑形)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- 阶段一: 1-4周 -->
-                <div class="phase-content" id="phase-1-4">
-                    <div class="phase-info">
-                        <h3>阶段一：基础奠定与动作学习 (Weeks 1-4)</h3>
-                        <div class="phase-details">
-                            <p><strong>频率：</strong>每周3次，全身训练 (FBW)</p>
-                            <p><strong>目标：</strong>学习正确动作，找到所有动作的"基线重量"，激活核心</p>
-                        </div>
-                    </div>
-
-                    <div class="workout-grid">
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 A</h4>
-                                <span class="day-tag">周三晚</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (5-10分钟)</h5>
-                                <p class="exercise-item">动态拉伸：开合跳、弓步转体、猫驼式、肩袖激活</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>主要动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 高脚杯深蹲</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 器械推胸</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 高位下拉</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 哑铃推肩</span>
-                                    <span class="exercise-sets">2组 × 10-12次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>核心专项 (10分钟)</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">平板支撑</span>
-                                    <span class="exercise-sets">3组 × 45-60秒</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">死虫子</span>
-                                    <span class="exercise-sets">3组 × 12-16次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>冷身 (5分钟)</h5>
-                                <p class="exercise-item">静态拉伸：胸、背、臀、大腿</p>
-                            </div>
-                        </div>
-
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 B</h4>
-                                <span class="day-tag">周六</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (5-10分钟)</h5>
-                                <p class="exercise-item">动态拉伸：开合跳、弓步转体、猫驼式、肩袖激活</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>主要动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 器械腿举</span>
-                                    <span class="exercise-sets">3组 × 10-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 哑铃卧推</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 坐姿划船</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 哑铃侧平举</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>核心专项 (10分钟)</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">卷腹</span>
-                                    <span class="exercise-sets">3组 × 15-20次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">鸟狗式</span>
-                                    <span class="exercise-sets">3组 × 10-12次/侧</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>冷身 (5分钟)</h5>
-                                <p class="exercise-item">静态拉伸：胸、背、臀、大腿</p>
-                            </div>
-                        </div>
-
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 C</h4>
-                                <span class="day-tag">周日</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (5-10分钟)</h5>
-                                <p class="exercise-item">动态拉伸：开合跳、弓步转体、猫驼式、肩袖激活</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>主要动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 罗马尼亚硬拉</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 俯卧撑</span>
-                                    <span class="exercise-sets">3组 × 力竭</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 单臂哑铃划船</span>
-                                    <span class="exercise-sets">3组 × 8-10次/侧</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 绳索面拉</span>
-                                    <span class="exercise-sets">3组 × 15-20次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>核心专项 (10分钟)</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">平板支撑</span>
-                                    <span class="exercise-sets">3组 × 45-60秒</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">俄罗斯转体</span>
-                                    <span class="exercise-sets">3组 × 15-20次/侧</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>冷身 (5分钟)</h5>
-                                <p class="exercise-item">静态拉伸：胸、背、臀、大腿</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tip-card">
-                        <h5>📌 双重递进原则</h5>
-                        <p><strong>第1周：</strong>找到基线重量（能做3组×8-10次的重量）</p>
-                        <p><strong>第2-4周：</strong>保持重量不变，努力增加次数，直到3组都能做到12次，下次训练再加重</p>
-                    </div>
-                </div>
-
-                <!-- 阶段二: 5-8周 -->
-                <div class="phase-content" id="phase-5-8" style="display:none;">
-                    <div class="phase-info">
-                        <h3>阶段二：力量增长与分化训练 (Weeks 5-8)</h3>
-                        <div class="phase-details">
-                            <p><strong>频率：</strong>每周3-4次，上/下半身分化 (Upper/Lower Split)</p>
-                            <p><strong>目标：</strong>增加训练量，开始真正刺激力量和肌肉维度的增长</p>
-                            <p><strong>训练日安排：</strong>A-B-A, B-A-B 循环（周二上、周四下、周六上、周日下）</p>
-                        </div>
-                    </div>
-
-                    <div class="workout-grid">
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 A - 上半身</h4>
-                                <span class="day-tag">周二/周六</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (10分钟)</h5>
-                                <p class="exercise-item">动态拉伸（重点：肩、胸、背）</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>力量动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 哑铃/杠铃卧推</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 杠铃划船</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>辅助动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 坐姿哑铃推肩</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 高位下拉</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>塑形动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">5. 哑铃侧平举</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">6. 哑铃弯举</span>
-                                    <span class="exercise-sets">2组 × 12-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">7. 绳索下压</span>
-                                    <span class="exercise-sets">2组 × 12-15次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>冷身 (5-10分钟)</h5>
-                                <p class="exercise-item">静态拉伸：胸、背、肩、手臂</p>
-                            </div>
-                        </div>
-
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 B - 下半身 & 核心</h4>
-                                <span class="day-tag">周四/周日</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (10分钟)</h5>
-                                <p class="exercise-item">动态拉伸（重点：髋、膝、踝）</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>力量动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 杠铃深蹲</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 罗马尼亚硬拉</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>辅助动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 保加利亚分腿蹲</span>
-                                    <span class="exercise-sets">3组 × 8-10次/侧</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 器械腿弯举</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>塑形 & 核心</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">5. 器械腿屈伸</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">6. 绳索卷腹</span>
-                                    <span class="exercise-sets">3组 × 15-20次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">7. 悬垂举腿</span>
-                                    <span class="exercise-sets">3组 × 力竭</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>冷身 (5-10分钟)</h5>
-                                <p class="exercise-item">静态拉伸：臀、股四、大腿后侧</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tip-card">
-                        <h5>📌 渐进超负荷</h5>
-                        <p><strong>复合动作(8-12次)：</strong>继续执行"双重递进"</p>
-                        <p><strong>孤立动作(12-15次)：</strong>当3组都能做15次时再加重</p>
-                    </div>
-                </div>
-
-                <!-- 阶段三: 9-12周 -->
-                <div class="phase-content" id="phase-9-12" style="display:none;">
-                    <div class="phase-info">
-                        <h3>阶段三：增肌塑形与强化 (Weeks 9-12)</h3>
-                        <div class="phase-details">
-                            <p><strong>频率：</strong>每周3-4次，强化上/下分化</p>
-                            <p><strong>目标：</strong>增加塑形动作容量，最大化增肌效果</p>
-                            <p><strong>训练日安排：</strong>A-B-C 循环或 A-B-C-B（B日练两次效果最好）</p>
-                        </div>
-                    </div>
-
-                    <div class="workout-grid">
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 A - 上半身·推重点</h4>
-                                <span class="day-tag">周二</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (10分钟)</h5>
-                                <p class="exercise-item">动态拉伸</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>力量动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 杠铃卧推</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 坐姿哑铃推肩</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>塑形动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 上斜哑铃卧推</span>
-                                    <span class="exercise-sets">3组 × 10-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 哑铃侧平举</span>
-                                    <span class="exercise-sets">4组 × 12-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">5. 绳索夹胸</span>
-                                    <span class="exercise-sets">2组 × 12-15次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>手臂</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">6. 绳索下压（三头）</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">7. 哑铃弯举（二头）</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>核心</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">悬垂举腿</span>
-                                    <span class="exercise-sets">3组 × 力竭</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 C - 上半身·拉重点</h4>
-                                <span class="day-tag">周六</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (10分钟)</h5>
-                                <p class="exercise-item">动态拉伸</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>力量动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 引体向上/高位下拉</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 杠铃划船</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>塑形动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 单臂哑铃划船</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 绳索面拉</span>
-                                    <span class="exercise-sets">3组 × 15-20次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">5. 反向飞鸟</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>核心</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">绳索卷腹</span>
-                                    <span class="exercise-sets">3组 × 15-20次</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="workout-card">
-                            <div class="workout-header">
-                                <h4>训练日 B - 下半身 & 核心</h4>
-                                <span class="day-tag">周四/周日</span>
-                            </div>
-                            <div class="workout-section">
-                                <h5>热身 (10分钟)</h5>
-                                <p class="exercise-item">动态拉伸</p>
-                            </div>
-                            <div class="workout-section">
-                                <h5>力量动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">1. 杠铃深蹲</span>
-                                    <span class="exercise-sets">3组 × 8-12次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">2. 罗马尼亚硬拉</span>
-                                    <span class="exercise-sets">3组 × 10-12次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>塑形动作</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">3. 器械腿举</span>
-                                    <span class="exercise-sets">3组 × 10-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">4. 器械腿弯举</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">5. 器械腿屈伸</span>
-                                    <span class="exercise-sets">3组 × 12-15次</span>
-                                </div>
-                            </div>
-                            <div class="workout-section">
-                                <h5>核心</h5>
-                                <div class="exercise-item">
-                                    <span class="exercise-name">侧平板支撑</span>
-                                    <span class="exercise-sets">3组 × 45-60秒/侧</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tip-card">
-                        <h5>⏰ 周中训练时间管理</h5>
-                        <p>周中训练（9:00-10:00）优先完成力量动作和塑形动作1-2</p>
-                        <p>时间不够时，手臂和核心可留到周末补充</p>
-                    </div>
-                </div>
+            <div class="text-right">
+                <p class="text-[10px] md:text-xs font-bold text-gray-400 tracking-widest uppercase bg-white/50 px-2 py-1 rounded-lg backdrop-blur-sm">
+                    3 Months Body Correction
+                </p>
             </div>
         </div>
 
-        <!-- 打卡记录页面 -->
-        <div class="tab-content" id="checkin">
-            <div class="card">
-                <div class="card-header">
-                    <h2>训练打卡</h2>
-                    <button class="btn-primary" id="addCheckinBtn">+ 新增打卡</button>
-                </div>
-
-                <div class="checkin-calendar">
-                    <div class="calendar-header">
-                        <button class="btn-icon" id="prevMonth">‹</button>
-                        <h3 id="currentMonth"></h3>
-                        <button class="btn-icon" id="nextMonth">›</button>
-                    </div>
-                    <div class="calendar-grid" id="calendarGrid"></div>
-                </div>
-
-                <div class="checkin-list" id="checkinList"></div>
+        <!-- Navigation Controls -->
+        <div class="px-4 md:px-6 max-w-[1400px] mx-auto mb-6 flex items-center justify-center gap-4">
+            <button id="prevBtn" class="nav-button p-2 rounded-full bg-white shadow-sm hover:shadow-md text-gray-600 hover:text-black disabled:opacity-30 disabled:cursor-not-allowed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+            </button>
+            <div class="text-center">
+                <p id="currentDate" class="text-sm font-bold text-gray-600"></p>
+                <p id="currentDay" class="text-xs text-gray-400 mt-1"></p>
             </div>
+            <button id="nextBtn" class="nav-button p-2 rounded-full bg-white shadow-sm hover:shadow-md text-gray-600 hover:text-black disabled:opacity-30 disabled:cursor-not-allowed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6"/>
+                </svg>
+            </button>
         </div>
 
-        <!-- 身体数据页面 -->
-        <div class="tab-content" id="body">
-            <div class="card">
-                <div class="card-header">
-                    <h2>身体数据追踪</h2>
-                    <button class="btn-primary" id="addBodyDataBtn">+ 记录数据</button>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">📏</div>
-                        <div class="stat-info">
-                            <span class="stat-label">身高</span>
-                            <span class="stat-value" id="heightValue">--</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">⚖️</div>
-                        <div class="stat-info">
-                            <span class="stat-label">当前体重</span>
-                            <span class="stat-value" id="weightValue">--</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">💪</div>
-                        <div class="stat-info">
-                            <span class="stat-label">体重变化</span>
-                            <span class="stat-value" id="weightChange">--</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">📊</div>
-                        <div class="stat-info">
-                            <span class="stat-label">BMI</span>
-                            <span class="stat-value" id="bmiValue">--</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-container">
-                    <h3>体重趋势</h3>
-                    <canvas id="weightChart"></canvas>
-                </div>
-
-                <div class="body-data-list" id="bodyDataList"></div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- 打卡弹窗 -->
-    <div class="modal" id="checkinModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>记录训练</h3>
-                <button class="btn-close" onclick="closeModal('checkinModal')">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>训练日期</label>
-                    <input type="date" id="checkinDate" />
-                </div>
-                <div class="form-group">
-                    <label>训练类型</label>
-                    <select id="checkinType">
-                        <option value="">选择训练类型</option>
-                        <option value="训练日 A">训练日 A</option>
-                        <option value="训练日 B">训练日 B</option>
-                        <option value="训练日 C">训练日 C</option>
-                        <option value="上半身·推">上半身·推</option>
-                        <option value="上半身·拉">上半身·拉</option>
-                        <option value="下半身">下半身</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>训练时长（分钟）</label>
-                    <input type="number" id="checkinDuration" placeholder="60" />
-                </div>
-                <div class="form-group">
-                    <label>训练笔记</label>
-                    <textarea id="checkinNotes" rows="4" placeholder="记录重量、次数、感受..."></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" onclick="closeModal('checkinModal')">取消</button>
-                <button class="btn-primary" onclick="saveCheckin()">保存</button>
+        <!-- Card Container -->
+        <div class="px-4 md:px-6 max-w-[1400px] mx-auto">
+            <div id="cardContainer" class="max-w-2xl mx-auto">
+                <!-- Card will be rendered here -->
             </div>
         </div>
     </div>
 
-    <!-- 身体数据弹窗 -->
-    <div class="modal" id="bodyDataModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>记录身体数据</h3>
-                <button class="btn-close" onclick="closeModal('bodyDataModal')">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>记录日期</label>
-                    <input type="date" id="bodyDate" />
-                </div>
-                <div class="form-group">
-                    <label>身高（cm）</label>
-                    <input type="number" id="bodyHeight" step="0.1" placeholder="175" />
-                </div>
-                <div class="form-group">
-                    <label>体重（kg）</label>
-                    <input type="number" id="bodyWeight" step="0.1" placeholder="70.5" />
-                </div>
-                <div class="form-group">
-                    <label>备注</label>
-                    <textarea id="bodyNotes" rows="3" placeholder="其他身体数据或感受..."></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" onclick="closeModal('bodyDataModal')">取消</button>
-                <button class="btn-primary" onclick="saveBodyData()">保存</button>
-            </div>
-        </div>
-    </div>
+    <script>
+        // 数据源
+        const homeWorkout = [
+            { name: '靠墙天使', sets: '3组 × 15次', note: '背部贴墙，改善圆肩' },
+            { name: '颈部回缩', sets: '3组 × 15次', note: '收下巴，改善头前引' },
+            { name: '死虫式', sets: '3组 × 20次', note: '核心贴地，稳住骨盆' },
+            { name: '猫牛式', sets: '1组 × 15次', note: '脊柱灵活度放松' },
+        ];
 
+        const gymUpperA = [
+            { name: '坐姿划船', sets: '4组 × 12次', note: '夹紧背部，沉肩' },
+            { name: '高位下拉', sets: '4组 × 12次', note: '拉到锁骨位置' },
+            { name: '反向飞鸟', sets: '4组 × 15次', note: '改善含胸' },
+            { name: '坐姿推胸', sets: '3组 × 12次', note: '小重量找感觉' },
+        ];
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="script.js"></script>
+        const gymLowerA = [
+            { name: '坐姿腿屈伸', sets: '4组 × 12次', note: '大腿前侧' },
+            { name: '坐姿腿弯举', sets: '4组 × 12次', note: '大腿后侧' },
+            { name: '倒蹬机', sets: '4组 × 12次', note: '膝盖不锁死' },
+            { name: '卷腹机', sets: '3组 × 15次', note: '腹肌训练' },
+        ];
+
+        const gymUpperB = [
+            { name: '坐姿划船', sets: '4组 × 12次', note: '核心稳定' },
+            { name: '宽握下拉', sets: '4组 × 12次', note: '背部宽度' },
+            { name: '坐姿肩推', sets: '3组 × 12次', note: '改善溜肩' },
+            { name: '蝴蝶机夹胸', sets: '3组 × 12次', note: '手臂微弯' },
+            { name: '二头弯举', sets: '3组 × 15次', note: '手臂线条' },
+        ];
+
+        const gymLowerB = [
+            { name: '倒蹬机', sets: '4组 × 12次', note: '力量维持' },
+            { name: '坐姿腿外展', sets: '4组 × 15次', note: '臀部外侧' },
+            { name: '卷腹机', sets: '4组 × 20次', note: '核心强化' },
+            { name: '坡度走/椭圆机', sets: '40分钟', note: '燃脂心率区' },
+        ];
+
+        const weeklyPlan = [
+            { 
+                id: 'mon', 
+                day: 'MONDAY', 
+                dayCn: '周一', 
+                title: '居家矫正', 
+                sub: '体态 & 核心', 
+                icon: 'home', 
+                color: 'text-emerald-600', 
+                bg: 'bg-emerald-500', 
+                ring: 'ring-emerald-500', 
+                tasks: homeWorkout 
+            },
+            { 
+                id: 'tue', 
+                day: 'TUESDAY', 
+                dayCn: '周二', 
+                title: '上肢 A', 
+                sub: '背部重点', 
+                icon: 'dumbbell', 
+                color: 'text-blue-600', 
+                bg: 'bg-blue-600', 
+                ring: 'ring-blue-600', 
+                tasks: gymUpperA 
+            },
+            { 
+                id: 'wed', 
+                day: 'WEDNESDAY', 
+                dayCn: '周三', 
+                title: '居家矫正', 
+                sub: '体态 & 核心', 
+                icon: 'home', 
+                color: 'text-emerald-600', 
+                bg: 'bg-emerald-500', 
+                ring: 'ring-emerald-500', 
+                tasks: homeWorkout 
+            },
+            { 
+                id: 'thu', 
+                day: 'THURSDAY', 
+                dayCn: '周四', 
+                title: '下肢 A', 
+                sub: '腿部基础', 
+                icon: 'zap', 
+                color: 'text-violet-600', 
+                bg: 'bg-violet-600', 
+                ring: 'ring-violet-600', 
+                tasks: gymLowerA 
+            },
+            { 
+                id: 'fri', 
+                day: 'FRIDAY', 
+                dayCn: '周五', 
+                title: '休息日', 
+                sub: 'Rest & Recover', 
+                icon: 'moon', 
+                color: 'text-slate-500', 
+                bg: 'bg-slate-500', 
+                ring: 'ring-slate-400', 
+                isRest: true, 
+                tasks: [
+                    { name: '泡澡/按摩', sets: '放松神经', note: '享受生活' }, 
+                    { name: '早睡', sets: '8小时+', note: '肌肉生长' }, 
+                    { name: '碳水补充', sets: 'Cheat Meal', note: '快乐一下' }
+                ] 
+            },
+            { 
+                id: 'sat', 
+                day: 'SATURDAY', 
+                dayCn: '周六', 
+                title: '上肢 B', 
+                sub: '肩背强化', 
+                icon: 'flame', 
+                color: 'text-orange-500', 
+                bg: 'bg-orange-500', 
+                ring: 'ring-orange-500', 
+                tasks: gymUpperB 
+            },
+            { 
+                id: 'sun', 
+                day: 'SUNDAY', 
+                dayCn: '周日', 
+                title: '下肢 B', 
+                sub: '燃脂 & 核心', 
+                icon: 'activity', 
+                color: 'text-rose-500', 
+                bg: 'bg-rose-500', 
+                ring: 'ring-rose-500', 
+                tasks: gymLowerB 
+            },
+            { 
+                id: 'tips', 
+                day: 'NOTES', 
+                dayCn: '关键贴士', 
+                title: '训练要点', 
+                sub: 'Read Before Train', 
+                icon: 'info', 
+                color: 'text-yellow-600', 
+                bg: 'bg-yellow-400', 
+                ring: 'ring-yellow-400', 
+                isTips: true, 
+                tasks: [
+                    { name: '脊柱侧弯', sets: '意念控制', note: '双侧背部必须同时用力' },
+                    { name: '宁轻勿重', sets: '避免代偿', note: '姿势标准 > 重量数字' },
+                    { name: '组间休息', sets: '60-90秒', note: '放下手机，保持专注' },
+                    { name: '呼吸', sets: '均匀节奏', note: '用力呼气，还原吸气' },
+                ]
+            },
+        ];
+
+        // 图标映射
+        const iconMap = {
+            'home': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+            'dumbbell': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11v11h-11z"/><path d="M6.5 6.5 2 2"/><path d="M17.5 17.5 22 22"/><path d="M6.5 17.5 2 22"/><path d="M17.5 6.5 22 2"/></svg>',
+            'zap': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+            'moon': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>',
+            'flame': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+            'activity': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+            'info': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="12 8h.01"/></svg>',
+            'check': '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+            'battery': '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><line x1="22" x2="22" y1="11" y2="13"/></svg>'
+        };
+
+        // 状态管理
+        let completedTasks = JSON.parse(localStorage.getItem('completedTasks') || '{}');
+        let currentDateIndex = parseInt(localStorage.getItem('currentDateIndex') || '0');
+
+        // 获取当前日期对应的索引
+        function getCurrentDayIndex() {
+            const today = new Date();
+            const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+            // 转换为我们的索引：Monday=0, Tuesday=1, ..., Sunday=6
+            return dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+        }
+
+        // 初始化当前日期索引
+        function initCurrentDateIndex() {
+            const savedIndex = localStorage.getItem('currentDateIndex');
+            if (savedIndex === null) {
+                currentDateIndex = getCurrentDayIndex();
+                localStorage.setItem('currentDateIndex', currentDateIndex.toString());
+            } else {
+                currentDateIndex = parseInt(savedIndex);
+            }
+        }
+
+        // 保存状态
+        function saveState() {
+            localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+            localStorage.setItem('currentDateIndex', currentDateIndex.toString());
+        }
+
+        // 获取进度
+        function getProgress(dayId, totalTasks) {
+            const completedCount = totalTasks.reduce((acc, _, idx) => {
+                const key = `${dayId}-${idx}`;
+                return acc + (completedTasks[key] ? 1 : 0);
+            }, 0);
+            return (completedCount / totalTasks.length) * 100;
+        }
+
+        // 切换任务完成状态
+        function toggleTask(dayId, taskIndex) {
+            const key = `${dayId}-${taskIndex}`;
+            completedTasks[key] = !completedTasks[key];
+            saveState();
+            renderCard();
+        }
+
+        // 格式化日期显示
+        function formatDate(index) {
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            const currentMondayIndex = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+            
+            const targetDate = new Date(today);
+            const diff = index - getCurrentDayIndex();
+            targetDate.setDate(today.getDate() + diff);
+            
+            const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+            const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+            
+            return {
+                day: weekdays[targetDate.getDay()],
+                date: `${targetDate.getMonth() + 1}/${targetDate.getDate()}`
+            };
+        }
+
+        // 渲染卡片
+        function renderCard() {
+            const item = weeklyPlan[currentDateIndex];
+            if (!item) return;
+
+            const progress = getProgress(item.id, item.tasks);
+            const isCompleted = progress === 100 && !item.isTips;
+            const isTips = item.isTips;
+            const dateInfo = formatDate(currentDateIndex);
+
+            // 更新日期显示
+            document.getElementById('currentDate').textContent = dateInfo.date;
+            document.getElementById('currentDay').textContent = dateInfo.day + ' ' + item.dayCn;
+
+            // 更新导航按钮状态
+            document.getElementById('prevBtn').disabled = currentDateIndex === 0;
+            document.getElementById('nextBtn').disabled = currentDateIndex === weeklyPlan.length - 1;
+
+            const cardHTML = `
+                <div class="card relative overflow-hidden rounded-[1.5rem] flex flex-col ${
+                    item.isRest ? 'bg-[#EAEAEA] border-transparent' : 'bg-white'
+                } ${
+                    isTips ? 'bg-gray-900 text-white' : ''
+                } ${
+                    isCompleted ? `ring-2 ${item.ring} shadow-md` : 'shadow-[0_4px_20px_rgb(0,0,0,0.03)]'
+                } ${item.isRest ? 'rest-card' : ''} ${isTips ? 'tips-card' : ''}">
+                    ${!item.isRest && !isTips ? `
+                        <div class="progress-bar absolute top-0 left-0 h-1 ${item.bg}" style="width: ${progress}%"></div>
+                    ` : ''}
+                    <div class="p-5 flex flex-col h-full">
+                        <!-- Card Header -->
+                        <div class="flex justify-between items-start mb-5">
+                            <div>
+                                <p class="text-[9px] font-bold tracking-[0.2em] uppercase mb-1 ${isTips ? 'text-yellow-400' : 'text-gray-400'}">
+                                    ${item.day}
+                                </p>
+                                <h2 class="text-xl font-bold tracking-tight leading-none ${isTips ? 'text-white' : 'text-black'} ${item.isRest ? 'text-gray-500' : ''}">
+                                    ${item.title}
+                                </h2>
+                                <p class="text-[10px] font-bold mt-1 ${isTips ? 'text-gray-400' : item.color} ${item.isRest ? '!text-gray-400' : ''}">
+                                    ${item.sub}
+                                </p>
+                            </div>
+                            <div class="p-2.5 rounded-xl ${isTips ? 'bg-gray-800 text-yellow-400' : (item.isRest ? 'bg-white/60 text-gray-400' : 'bg-gray-50 ' + item.color)}">
+                                ${iconMap[item.icon]}
+                            </div>
+                        </div>
+                        <!-- Task List -->
+                        <div class="flex-1 space-y-3.5">
+                            ${item.tasks.map((task, idx) => {
+                                const isDone = completedTasks[`${item.id}-${idx}`];
+                                return `
+                                    <div class="task-item group flex items-start gap-3 ${!isTips ? 'cursor-pointer' : ''}" 
+                                         ${!isTips ? `onclick="toggleTask('${item.id}', ${idx})"` : ''}>
+                                        <div class="mt-[2px] w-4 h-4 rounded-full border-[1.5px] flex items-center justify-center transition-all duration-200 shrink-0 ${
+                                            isTips 
+                                                ? 'border-yellow-500/30 bg-yellow-500/10' 
+                                                : (isDone 
+                                                    ? `${item.bg} border-transparent` 
+                                                    : `border-gray-200 group-hover:${item.color.replace('text-', 'border-')}`
+                                                )
+                                        }">
+                                            ${isTips 
+                                                ? '<div class="w-1 h-1 rounded-full bg-yellow-400"></div>' 
+                                                : (isDone ? iconMap.check : '')
+                                            }
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-baseline justify-between">
+                                                <span class="text-[13px] font-bold leading-none transition-colors duration-200 ${
+                                                    isTips ? 'text-gray-200' : (isDone ? 'text-gray-300 line-through decoration-2' : 'text-gray-800')
+                                                }">
+                                                    ${task.name}
+                                                </span>
+                                            </div>
+                                            <div class="text-[10px] font-medium mt-0.5 transition-colors duration-200 ${
+                                                isTips ? 'text-gray-500' : (isDone ? 'text-gray-200' : 'text-gray-400')
+                                            }">
+                                                ${task.sets}
+                                            </div>
+                                            ${(isTips || !isDone) ? `
+                                                <div class="task-note text-[9px] mt-0.5 leading-tight transition-opacity duration-200 ${
+                                                    isTips ? 'text-yellow-500/80 tips-note' : 'text-gray-400 opacity-0 group-hover:opacity-100 hidden md:block'
+                                                }">
+                                                    ${task.note}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                        ${!item.isRest && !isTips ? `
+                            <div class="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between opacity-60">
+                                <div class="flex items-center gap-1">
+                                    ${iconMap.battery}
+                                    <span class="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Level</span>
+                                </div>
+                                <div class="flex gap-0.5">
+                                    ${[...Array(5)].map((_, i) => {
+                                        const level = (item.id.includes('sun') || item.id.includes('thu')) ? 4 : 3;
+                                        return `<div class="w-1 h-1.5 rounded-full ${i < level ? item.bg : 'bg-gray-200'}"></div>`;
+                                    }).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('cardContainer').innerHTML = cardHTML;
+        }
+
+        // 导航功能
+        function navigate(direction) {
+            if (direction === 'prev' && currentDateIndex > 0) {
+                currentDateIndex--;
+                saveState();
+                renderCard();
+            } else if (direction === 'next' && currentDateIndex < weeklyPlan.length - 1) {
+                currentDateIndex++;
+                saveState();
+                renderCard();
+            }
+        }
+
+        // 事件监听
+        document.getElementById('prevBtn').addEventListener('click', () => navigate('prev'));
+        document.getElementById('nextBtn').addEventListener('click', () => navigate('next'));
+
+        // 初始化
+        initCurrentDateIndex();
+        renderCard();
+
+        // 全局函数供onclick使用
+        window.toggleTask = toggleTask;
+    </script>
 </body>
 </html>
-
